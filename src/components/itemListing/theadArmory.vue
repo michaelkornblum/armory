@@ -2,7 +2,10 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>name</th>
       <th v-for="header in headers">{{header}}</th>
+      <th>cost</th>
+      <th>qty</th>
       <th>actions</th>
     </tr>
   </thead>
