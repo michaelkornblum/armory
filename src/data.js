@@ -1,12 +1,9 @@
 export default {
   melee: {
     headers: [
-      'name',
       'dmg (sm/md)',
       'dmg (lg)',
       'enc',
-      'cost',
-      'qty',
     ],
     items: [
       {
@@ -221,12 +218,9 @@ export default {
   },
   ammo: {
     headers: [
-      'name',
       'dmg (sm/md)',
       'dmg (lg)',
       'enc',
-      'cost',
-      'qty',
     ],
     items: [
       {
@@ -272,14 +266,11 @@ export default {
   },
   missile: {
     headers: [
-      'name',
       'dmg (sm/md)',
       'dmg (lg)',
       'ROF',
       'range',
       'enc',
-      'cost',
-      'qty',
     ],
     items: [
       {
@@ -421,6 +412,122 @@ export default {
         enc: 5,
         cost: 1.00,
         qty: 4,
+      },
+    ],
+  },
+  armor: {
+    headers: [
+      'name',
+      'enc',
+      'move',
+      'AC',
+      'cost',
+      'qty',
+    ],
+    items: [
+      {
+        name: 'Banded',
+        enc: 35,
+        move: 90,
+        ac: -6,
+        cost: 90.00,
+        qty: 5,
+      },
+      {
+        name: 'Mail hauberk or byrnie (chain)',
+        enc: 30,
+        move: 90,
+        ac: -5,
+        cost: 75,
+        qty: 5,
+      },
+      {
+        name: 'Mail, elfin',
+        enc: 15,
+        move: 120,
+        ac: -5,
+        cost: 'N/A',
+        qty: 0,
+      },
+      {
+        name: 'Leather',
+        enc: 15,
+        move: 120,
+        ac: -2,
+        cost: 5.00,
+        qty: 1,
+      },
+      {
+        name: 'Padded gambeson',
+        enc: 10,
+        move: 90,
+        ac: -2,
+        cost: 4.00,
+        qty: 6,
+      },
+      {
+        name: 'Plate',
+        enc: 45,
+        move: 60,
+        ac: -7,
+        cost: 400.00,
+        qty: 5,
+      },
+      {
+        name: 'Ring',
+        enc: 35,
+        move: 90,
+        ac: -3,
+        cost: 30.00,
+        qty: 3,
+      },
+      {
+        name: 'Scale or lamellar',
+        enc: 40,
+        move: 60,
+        ac: -4,
+        cost: 45.00,
+        qty: 4,
+      },
+      {
+        name: 'Shield, large',
+        enc: 10,
+        move: 'N/A',
+        ac: -1,
+        cost: 15.00,
+        qty: 1,
+      },
+      {
+        name: 'Shield, medium',
+        enc: 8,
+        move: 'N/A',
+        ac: -1,
+        cost: 12.00,
+        qty: 1,
+      },
+      {
+        name: 'Shield, small',
+        enc: 5,
+        move: 'N/A',
+        ac: -1,
+        cost: 10.00,
+        qty: 1,
+      },
+      {
+        name: 'Splint',
+        enc: 40,
+        move: 60,
+        ac: -6,
+        cost: 80.00,
+        qty: 6,
+      },
+      {
+        name: 'Studded',
+        enc: 20,
+        move: 90,
+        ac: -3,
+        cost: 15.00,
+        qty: 6,
       },
     ],
   },
