@@ -16,12 +16,13 @@
     name: 'thead-armory',
     data() {
       return {
+        data,
         headers: data.melee.headers,
       };
     },
     created() {
       bus.$on('tableChange', (payload) => {
-        this.headers = data[payload].headers;
+        this.headers = this.data[payload].headers;
       });
     },
   };
