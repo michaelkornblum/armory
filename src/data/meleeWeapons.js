@@ -1,0 +1,46 @@
+export default {
+  tableHeaders: [
+    '#',
+    'name',
+    'dmg (sm/md)',
+    'dmg (lg)',
+    'enc',
+    'cost',
+    'qty',
+    'actions',
+  ],
+  items: [
+    {
+      name: 'Arrows*',
+      dmgSm: '1d6',
+      dmgLg: '1d6',
+      enc: 4,
+      cost: '2gp',
+      qty: 6,
+    },
+    {
+      name: 'Axe, battle',
+      dmgSm: '1d8',
+      dmgLg: '1d8',
+      enc: 7,
+      cost: '5gp',
+      qty: 2,
+    },
+    {
+      name: 'Axe, hand',
+      dmgSm: '1d6',
+      dmgLg: '1d4',
+      enc: 5,
+      cost: '1gp',
+      qty: 5,
+    },
+    {
+      name: 'Bolt, heavy crossbow*',
+      dmgSm: '1d6+1',
+      dmgLg: '1d6+1',
+      enc: 4,
+      cost: '4gp',
+      qty: 7,
+    },
+  ],
+};

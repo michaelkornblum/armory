@@ -1,0 +1,28 @@
+<template>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th v-for="header in headers">{{header}}</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+</template>
+
+<script>
+  import bus from '../../main';
+  import data from '../../data';
+
+  export default {
+    name: 'thead-armory',
+    data() {
+      return {
+        headers: data.melee.headers,
+      };
+    },
+    created() {
+      bus.$on('tableChange', (payload) => {
+        this.headers = data[payload].headers;
+      });
+    },
+  };
+</script>
