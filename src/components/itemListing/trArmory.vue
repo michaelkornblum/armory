@@ -13,3 +13,23 @@
     </tr>
   </tbody>
 </template>
+
+<script>
+  import bus from '../../main';
+  import data from '../../data';
+
+  export default {
+    name: 'tr-armory',
+    data() {
+      return {
+        data,
+        items: data.melee.items,
+      };
+    },
+    created() {
+      bus.$on('tableChange', (payload) => {
+        this.items = this.data[payload].items;
+      });
+    },
+  };
+</script>

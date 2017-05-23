@@ -1,9 +1,14 @@
 export default {
   melee: {
     headers: [
+      '#',
+      'name',
       'dmg (sm/md)',
       'dmg (lg)',
       'enc',
+      'cost',
+      'qty',
+      'actions',
     ],
     items: [
       {
@@ -218,9 +223,14 @@ export default {
   },
   ammo: {
     headers: [
+      '#',
+      'name',
       'dmg (sm/md)',
       'dmg (lg)',
       'enc',
+      'cost',
+      'qty',
+      'actions',
     ],
     items: [
       {
@@ -229,6 +239,7 @@ export default {
         dmgLg: '1d6',
         enc: 4,
         cost: 2.00,
+        qty: 6,
       },
       {
         name: 'Bolt, heavy crossbow*',
@@ -266,11 +277,16 @@ export default {
   },
   missile: {
     headers: [
+      '#',
+      'name',
       'dmg (sm/md)',
       'dmg (lg)',
       'ROF',
       'range',
       'enc',
+      'cost',
+      'qty',
+      'actions',
     ],
     items: [
       {
@@ -417,12 +433,14 @@ export default {
   },
   armor: {
     headers: [
+      '#',
       'name',
       'enc',
       'move',
       'AC',
       'cost',
       'qty',
+      'actions',
     ],
     items: [
       {
