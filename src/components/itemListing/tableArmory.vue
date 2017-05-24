@@ -1,12 +1,9 @@
 <template>
   <table class="table table-striped table-responsive">
     <thead-armory></thead-armory>
-
-      <tr-armory></tr-armory>
-
+    <tr-armory></tr-armory>
   </table>
 </template>
-
 
 <script>
   import theadArmory from './theadArmory';
