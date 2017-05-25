@@ -4,7 +4,13 @@
       <td>{{index + 1}}</td>
       <td v-for="(value, key) in item">
         <span v-if="key == 'cost'">
-          <span v-if="value != 'N/A'">$</span>{{value | currency}}
+          <span v-if="typeof value === 'number'">$</span>{{value | currency}}
+        </span>
+        <span v-else-if="key == 'move' || key == 'range'">
+          {{value}}ft.
+        </span>
+        <span v-else-if="category == 'armor' && key == 'enc'">
+          {{value}}lb.
         </span>
         <span v-else>
           {{value}}
@@ -43,7 +49,6 @@
         if (typeof value === 'number') {
           return value.toFixed(2);
         }
-
         return value;
       },
     },
