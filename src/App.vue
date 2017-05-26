@@ -1,22 +1,17 @@
 <template>
   <div class="container-fluid" id="app">
+    <modal></modal>
     <div class="row">
       <header class="col-sm-12">
         <h1 class="h2">Armory Inventory Control</h1>
       </header>
     </div>
+
     <div class="row">
-<<<<<<< HEAD
-      <section class="dashboard col-lg-3 col-md-4">
-        <dashboard />
-      </section>
-      <section class="item-listing col-lg-9 col-md-8">
-=======
       <section class="dashboard col-lg-3">
         <dashboard />
       </section>
       <section class="item-listing col-lg-9">
->>>>>>> 6139f57fb9194cbf4e04a8236ee4b4584be91c0f
         <item-listing />
       </section>
     </div>
@@ -26,10 +21,12 @@
 <script>
 import dashboard from './components/dashboard/dashboard';
 import itemListing from './components/itemListing/itemListing';
+import modal from './components/modal';
 
 export default {
   name: 'app',
   components: {
+    modal,
     dashboard,
     itemListing,
   },
