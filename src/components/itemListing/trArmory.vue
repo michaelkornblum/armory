@@ -17,10 +17,10 @@
         </span>
       </td>
       <td class="btn-group">
-        <button class="btn btn-info":disabled="item.qty == 6" @click="changeQty(item, 1)">add</button>
+        <button class="btn btn-info" @click="changeQty(item, 1)">add</button>
         <button :disabled="item.qty == 0" class="btn btn-success" @click="changeQty(item, -1)">sell</button>
         <button class="btn btn-warning">edit</button>
-        <button class="btn btn-danger">delete</button>
+        <button class="btn btn-danger" @click="deleteItem(items, index)">delete</button>
       </td>
     </tr>
   </tbody>
@@ -36,20 +36,22 @@
       return {
         data,
         items: data.melee.items,
-        category: 'melee',
       };
     },
     created() {
       bus.$on('tableChange', (payload) => {
         this.category = payload;
-        this.items = this.data[this.category].items;
+        this.items = this.data[payload].items;
       });
     },
-    /* eslint no-param-reassign: ["error", { "props": false }] */
 
+    /* eslint no-param-reassign: ["error", { "props": false }] */
     methods: {
       changeQty: (item, delta) => {
         item.qty += delta;
+      },
+      deleteItem: (items, index) => {
+        items.splice(index, 1);
       },
     },
     filters: {
@@ -66,5 +68,6 @@
 <style>
   .outOfStock {
     color: red;
+    font-weight: bold;
   }
 </style>
