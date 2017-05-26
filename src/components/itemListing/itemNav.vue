@@ -1,7 +1,7 @@
 <template>
   <ul class="nav nav-tabs">
-    <li class="nav-item" v-for="table in tables" >
-      <a class="nav-link" :class="isActiveTable(table) ? 'active' : ''" @click="setTable(table)">
+    <li :class="{active: isActiveTable(table)}" class="nav-item" v-for="table in tables" >
+      <a class="nav-link" :class="{active: isActiveTable(table)}" @click="setTable(table)">
         {{table}}
       </a>
     </li>

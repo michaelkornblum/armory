@@ -20,7 +20,7 @@
         <button class="btn btn-info" @click="changeQty(item, 1)">add</button>
         <button :disabled="item.qty == 0" class="btn btn-success" @click="changeQty(item, -1)">sell</button>
         <button class="btn btn-warning">edit</button>
-        <button class="btn btn-danger" @click="deleteItem(items, index)">delete</button>
+        <button class="btn btn-danger" @click="deleteItem(index)">delete</button>
       </td>
     </tr>
   </tbody>
@@ -36,6 +36,7 @@
       return {
         data,
         items: data.melee.items,
+        category: 'melee',
       };
     },
     created() {
@@ -47,15 +48,15 @@
 
     /* eslint no-param-reassign: ["error", { "props": false }] */
     methods: {
-      changeQty: (item, delta) => {
+      changeQty(item, delta) {
         item.qty += delta;
       },
-      deleteItem: (items, index) => {
-        items.splice(index, 1);
+      deleteItem(index) {
+        this.items.splice(index, 1);
       },
     },
     filters: {
-      currency: (value) => {
+      currency(value) {
         if (typeof value === 'number') {
           return value.toFixed(2);
         }
