@@ -6,10 +6,17 @@
       </header>
     </div>
     <div class="row">
+<<<<<<< HEAD
       <section class="dashboard col-lg-3 col-md-4">
         <dashboard />
       </section>
       <section class="item-listing col-lg-9 col-md-8">
+=======
+      <section class="dashboard col-lg-3">
+        <dashboard />
+      </section>
+      <section class="item-listing col-lg-9">
+>>>>>>> 6139f57fb9194cbf4e04a8236ee4b4584be91c0f
         <item-listing />
       </section>
     </div>
