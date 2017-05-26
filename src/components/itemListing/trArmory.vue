@@ -17,7 +17,8 @@
         </span>
       </td>
       <td class="btn-group">
-        <button :disabled="item.qty == 0" class="btn btn-success">sell</button>
+        <button class="btn btn-info":disabled="item.qty == 6" @click="changeQty(item, 1)">add</button>
+        <button :disabled="item.qty == 0" class="btn btn-success" @click="changeQty(item, -1)">sell</button>
         <button class="btn btn-warning">edit</button>
         <button class="btn btn-danger">delete</button>
       </td>
@@ -43,6 +44,13 @@
         this.category = payload;
         this.items = this.data[this.category].items;
       });
+    },
+    /* eslint no-param-reassign: ["error", { "props": false }] */
+
+    methods: {
+      changeQty: (item, delta) => {
+        item.qty += delta;
+      },
     },
     filters: {
       currency: (value) => {
