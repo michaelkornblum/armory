@@ -2,8 +2,13 @@
   <tbody>
     <tr v-for="item, index in items">
       <td>{{index + 1}}</td>
-      <td v-for="value in item">
-        {{value}}
+      <td v-for="value, key in item">
+        <span v-if="key == 'cost'">
+          {{value | currency}}
+        </span>
+        <span v-else>
+          {{value}}
+        </span>
       </td>
       <td class="btn-group">
         <button class="btn btn-success">sell</button>
@@ -30,6 +35,14 @@
       bus.$on('tableChange', (payload) => {
         this.items = this.data[payload].items;
       });
+    },
+    filters: {
+      currency: (value) => {
+        if (typeof value === 'number') {
+          return value.toFixed(2).toString();
+        }
+        return value;
+      },
     },
   };
 </script>

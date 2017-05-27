@@ -42,5 +42,4 @@ export default {
   .item-listing {
     border-left: 2px solid #ccc;
   }
-
 </style>
