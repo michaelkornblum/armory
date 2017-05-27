@@ -2,11 +2,6 @@
   <tbody>
     <tr :class="{outOfStock: item.qty == 0}" v-for="(item, index) in items">
       <td>{{index + 1}}</td>
-<<<<<<< HEAD
-      <td v-for="value, key in item">
-        <span v-if="key == 'cost'">
-          {{value | currency}}
-=======
       <td v-for="(value, key) in item">
         <span v-if="key == 'cost'">
           <span v-if="typeof value === 'number'">$</span>{{value | currency}}
@@ -16,7 +11,6 @@
         </span>
         <span v-else-if="category == 'armor' && key == 'enc'">
           {{value}}lb.
->>>>>>> ee397a2887380b082b4635ba73b102b2bd148913
         </span>
         <span v-else>
           {{value}}
@@ -51,12 +45,6 @@
         this.items = this.data[payload].items;
       });
     },
-<<<<<<< HEAD
-    filters: {
-      currency: (value) => {
-        if (typeof value === 'number') {
-          return value.toFixed(2).toString();
-=======
 
     /* eslint no-param-reassign: ["error", { "props": false }] */
     methods: {
@@ -71,7 +59,6 @@
       currency(value) {
         if (typeof value === 'number') {
           return value.toFixed(2);
->>>>>>> ee397a2887380b082b4635ba73b102b2bd148913
         }
         return value;
       },
