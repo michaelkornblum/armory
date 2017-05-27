@@ -1,10 +1,12 @@
 <template>
   <div class="container-fluid" id="app">
+    <modal></modal>
     <div class="row">
       <header class="col-sm-12">
         <h1 class="h2">Armory Inventory Control</h1>
       </header>
     </div>
+
     <div class="row">
       <section class="dashboard col-lg-3">
         <dashboard />
@@ -19,10 +21,12 @@
 <script>
 import dashboard from './components/dashboard/dashboard';
 import itemListing from './components/itemListing/itemListing';
+import modal from './components/modal';
 
 export default {
   name: 'app',
   components: {
+    modal,
     dashboard,
     itemListing,
   },

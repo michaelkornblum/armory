@@ -1,6 +1,24 @@
 # armory
 
-> A Vue.js project
+This application is an inventory tracker for shopkeepers in a popular paper and dice rpg.
+
+At this time, it is not yet complete. I still have to do the following:
+
+-   create a modal dialogue box for adding, editing and deleting entries.
+
+-   add notes to item listing
+
+-   add filtering capabilities
+
+-   add routing
+
+-   improve state management
+
+-   add animation
+
+-   add logging capabilities
+
+-   connect the app to an api
 
 ## Build Setup
 
