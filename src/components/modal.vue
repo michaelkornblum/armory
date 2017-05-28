@@ -4,31 +4,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit Item</h5>
-        <button type="button" class="close">
+        <button type="button" class="close" @click="show = false">
           <span>&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label class="form-label" for="item-name">name
-            </label>
-            <input id="item-name" class="form-control" type="text" placeholder="ba">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="item-dmg-sm">dmg (sm/md)
-            </label>
-            <input id="item-dmg-small" class="form-control" type="text" placeholder="ba">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="item-dmg-sm">dmg (sm/md)
-            </label>
-            <input id="item-dmg-small" class="form-control" type="text" placeholder="ba">
-          </div>
-        </form>
+        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" >Close</button>
+        <button type="button" class="btn btn-secondary" @click="show = false">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
@@ -41,7 +25,7 @@
     name: 'modal',
     data() {
       return {
-        show: false,
+        show: true,
       };
     },
   };
@@ -61,8 +45,8 @@
     position: fixed;
     z-index: 9998;
     background-color: rgba(0, 0, 0, .5);
-    height: 100%;
+    height: 105%;
     width: 100%;
-    padding: 10%;
+    top: -1%;
   }
 </style>
