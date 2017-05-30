@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        
+        <component :is="currForm" :item="item"></component>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" @click="show = false">Close</button>
@@ -21,24 +21,39 @@
 </template>
 
 <script>
+  import bus from '../main';
+  import editForm from './editForm';
+
   export default {
     name: 'modal',
+    components: {
+      editForm,
+    },
     data() {
       return {
-        show: true,
+        show: false,
+        currForm: 'addForm',
+        item: {},
       };
+    },
+    created() {
+      bus.$on('editItem', (payload) => {
+        this.currForm = payload.form;
+        this.item = payload.item;
+        this.show = true;
+      });
     },
   };
 </script>
 
 <style>
   .modal-dialog {
-    position: fixed;
+    position: absolute;
     z-index: 9999;
     height: 100%;
     width: 100%;
     left: 50%;
-    top: 30%;
+    top: 30vh;
     transform: translate(-50%, -25%);
   }
   .modal-wrapper {

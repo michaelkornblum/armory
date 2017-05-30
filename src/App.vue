@@ -1,21 +1,24 @@
 <template>
-  <div class="container-fluid" id="app">
+  <div>
     <modal></modal>
-    <div class="row">
-      <header class="col-sm-12">
-        <h1 class="h2">Armory Inventory Control</h1>
-      </header>
-    </div>
+    <div class="container-fluid" id="app">
+      <div class="row">
+        <header class="col-sm-12">
+          <h1 class="h2">Armory Inventory Control</h1>
+        </header>
+      </div>
 
-    <div class="row">
-      <section class="dashboard col-lg-3">
-        <dashboard />
-      </section>
-      <section class="item-listing col-lg-9">
-        <item-listing />
-      </section>
+      <div class="row">
+        <section class="dashboard col-lg-3">
+          <dashboard />
+        </section>
+        <section class="item-listing col-lg-9">
+          <item-listing />
+        </section>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
