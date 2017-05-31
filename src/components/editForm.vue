@@ -6,9 +6,9 @@
 
         <input v-if="typeof value === 'number'"
          class="form-control"
-         type="text"
+         type="number"
          :value="value"
-         @keyup="setNewItem($event, key)"
+         @keyup="setNewItem($event, key)" @click="setNewItem($event, key)"
          >
 
         <input v-else
