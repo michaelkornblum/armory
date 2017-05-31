@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" @click="show = false">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" @click="updateItem(item)">Save changes</button>
       </div>
     </div>
   </div>
@@ -32,15 +32,28 @@
     data() {
       return {
         show: false,
-        currForm: 'addForm',
+        currForm: null,
         item: {},
+        newItem: {},
+        index: null,
       };
+    },
+    methods: {
+      updateItem() {
+        this.item = this.newItem;
+        bus.$emit('updatedItem', { item: this.item, index: this.index });
+        this.show = false;
+      },
     },
     created() {
       bus.$on('editItem', (payload) => {
         this.currForm = payload.form;
         this.item = payload.item;
+        this.index = payload.index;
         this.show = true;
+      });
+      bus.$on('editedItem', (payload) => {
+        this.newItem = payload;
       });
     },
   };

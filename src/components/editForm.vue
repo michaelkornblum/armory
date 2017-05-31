@@ -4,7 +4,7 @@
       <div class="form-group" v-for="(value, key) in item">
         <label class="form-label" :for="key">{{key}}</label>
 
-        <input v-if="typeof value == 'string'"
+        <input v-if="typeof value === 'number'"
          class="form-control"
          type="text"
          :value="value"
@@ -12,10 +12,10 @@
          >
 
         <input v-else
-        class="form-control"
-        type="number"
-        :value="value"
-        @keyup="setNewItem($event, key)"
+          class="form-control"
+          type="text"
+          :value="value"
+          @keyup="setNewItem($event, key)"
         >
 
       </div>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+  import bus from '../main';
+
   export default {
     props: [
       'item',
@@ -42,6 +44,7 @@
     methods: {
       setNewItem(event, key) {
         this.newItem[key] = event.target.value;
+        bus.$emit('editedItem', this.newItem);
       },
     },
   };

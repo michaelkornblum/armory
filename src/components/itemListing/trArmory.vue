@@ -1,10 +1,13 @@
+
+
 <template>
   <tbody>
     <tr :class="{outOfStock: item.qty == 0}" v-for="(item, index) in items">
       <td>{{index + 1}}</td>
       <td v-for="(value, key) in item">
         <span v-if="key == 'cost'">
-          <span v-if="typeof value === 'number'">$</span>{{value | currency}}
+          <span v-if="typeof value === 'number'">{{value | currency}} </span>
+          <span v-else>{{value}}</span>
         </span>
         <span v-else-if="key == 'move' || key == 'range'">
           {{value}}ft.
@@ -27,22 +30,30 @@
 </template>
 
 <script>
+  import cloneDeep from 'lodash.clonedeep';
   import bus from '../../main';
   import data from '../../data';
+
 
   export default {
     name: 'tr-armory',
     data() {
       return {
-        data,
-        items: data.melee.items,
-        category: 'melee',
+        Data: {},
+        items: [],
+        category: '',
       };
     },
     created() {
+      this.Data = cloneDeep(data);
+      this.category = 'melee';
+      this.items = this.Data[this.category].items;
       bus.$on('tableChange', (payload) => {
         this.category = payload;
-        this.items = this.data[payload].items;
+        this.items = this.Data[payload].items;
+      });
+      bus.$on('updatedItem', (payload) => {
+        this.items.splice(payload.index, 1, payload.item);
       });
     },
 
@@ -65,7 +76,8 @@
     filters: {
       currency(value) {
         if (typeof value === 'number') {
-          return value.toFixed(2);
+          const newValue = value.toFixed(2);
+          return `${newValue}gp`;
         }
         return value;
       },
