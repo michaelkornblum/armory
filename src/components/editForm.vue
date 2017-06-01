@@ -7,6 +7,7 @@
         <input v-if="typeof value === 'number'"
          class="form-control"
          type="number"
+         min="0"
          :value="value"
          @keyup="strToNum($event, key)" @click="strToNum($event, key)"
          >

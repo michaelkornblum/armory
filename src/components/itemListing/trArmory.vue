@@ -20,8 +20,6 @@
         </span>
       </td>
       <td class="btn-group">
-        <button class="btn btn-info" @click="changeQty(item, 1)">add</button>
-        <button :disabled="item.qty == 0" class="btn btn-success" @click="changeQty(item, -1)">sell</button>
         <button class="btn btn-warning" @click="editItem(item, index)">edit</button>
         <button class="btn btn-danger" @click="deleteItem(index)">delete</button>
       </td>
