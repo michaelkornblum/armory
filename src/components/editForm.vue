@@ -8,7 +8,7 @@
          class="form-control"
          type="number"
          :value="value"
-         @keyup="setNewItem($event, key)" @click="setNewItem($event, key)"
+         @keyup="strToNum($event, key)" @click="strToNum($event, key)"
          >
 
         <input v-else
@@ -44,6 +44,10 @@
     methods: {
       setNewItem(event, key) {
         this.newItem[key] = event.target.value;
+        bus.$emit('editedItem', this.newItem);
+      },
+      strToNum(event, key) {
+        this.newItem[key] = parseFloat(event.target.value);
         bus.$emit('editedItem', this.newItem);
       },
     },
