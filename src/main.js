@@ -6,7 +6,7 @@ import App from './App';
 const bus = new Vue();
 export default bus;
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 /* eslint-disable no-new */
 new Vue({
