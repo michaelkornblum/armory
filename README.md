@@ -4,7 +4,7 @@ This application is an inventory tracker for shopkeepers in a popular paper and 
 
 At this time, it is not yet complete. I still have to do the following:
 
--   create a modal dialogue box for adding, editing and deleting entries.
+-   create a modal dialogue box for adding and deleting entries.
 
 -   add notes to item listing
 
