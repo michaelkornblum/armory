@@ -2,7 +2,7 @@
 
 <template>
   <tbody>
-    <tr :class="{outOfStock: item.qty == 0}" v-for="(item, index) in items">
+    <tr :class="{outOfStock: item.qty == 0}" v-for="(item, index) in filteredItems">
       <td>{{index + 1}}</td>
       <td v-for="(value, key) in item">
         <span v-if="key == 'cost'">
@@ -24,6 +24,7 @@
         <button class="btn btn-danger" @click="deleteItem(index)">delete</button>
       </td>
     </tr>
+    {{showOutOfStock}}
   </tbody>
 </template>
 
@@ -40,6 +41,7 @@
         Data: {},
         items: [],
         category: '',
+        showOutOfStock: true,
       };
     },
     created() {
@@ -49,6 +51,9 @@
       bus.$on('tableChange', (payload) => {
         this.category = payload;
         this.items = this.Data[payload].items;
+      });
+      bus.$on('outOfStockToggle', (payload) => {
+        this.showOutOfStock = payload;
       });
       bus.$on('updatedItem', (payload) => {
         this.items.splice(payload.index, 1, payload.item);
@@ -78,6 +83,15 @@
           return `${newValue}gp`;
         }
         return value;
+      },
+    },
+    computed: {
+      filteredItems() {
+        if (!this.showOutOfStock) {
+          const filteredItems = this.items.filter(item => item.qty > 0);
+          return filteredItems;
+        }
+        return this.items;
       },
     },
   };
