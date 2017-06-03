@@ -1,5 +1,14 @@
 export default {
   melee: {
+    formFields:
+    {
+      name: 'text',
+      dmgSm: 'text',
+      dmgLg: 'text',
+      enc: 'number',
+      cost: 'number',
+      qty: 'number',
+    },
     headers: [
       '#',
       'name',
@@ -222,6 +231,14 @@ export default {
     ],
   },
   ammo: {
+    formFields: {
+      name: 'text',
+      dmgSm: 'text',
+      dmgLg: 'text',
+      enc: 'number',
+      cost: 'number',
+      qty: 'number',
+    },
     headers: [
       '#',
       'name',
@@ -276,6 +293,16 @@ export default {
     ],
   },
   missile: {
+    formFields: {
+      name: 'text',
+      dmgSm: 'text',
+      dmgLg: 'text',
+      rof: 'number',
+      range: 'number',
+      enc: 'number',
+      cost: 'number',
+      qty: 'number',
+    },
     headers: [
       '#',
       'name',
@@ -432,6 +459,14 @@ export default {
     ],
   },
   armor: {
+    formFields: {
+      name: 'text',
+      enc: 'number',
+      move: 'number',
+      ac: 'number',
+      cost: 'number',
+      qty: 'number',
+    },
     headers: [
       '#',
       'name',
