@@ -8,8 +8,6 @@ At this time, it is not yet complete. I still have to do the following:
 
 -   add notes to item listing
 
--   add filtering capabilities
-
 -   add routing
 
 -   improve state management

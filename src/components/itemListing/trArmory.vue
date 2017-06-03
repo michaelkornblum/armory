@@ -24,7 +24,6 @@
         <button class="btn btn-danger" @click="deleteItem(index)">delete</button>
       </td>
     </tr>
-    {{showOutOfStock}}
   </tbody>
 </template>
 
@@ -42,6 +41,7 @@
         items: [],
         category: '',
         showOutOfStock: true,
+        query: '',
       };
     },
     created() {
@@ -57,6 +57,9 @@
       });
       bus.$on('updatedItem', (payload) => {
         this.items.splice(payload.index, 1, payload.item);
+      });
+      bus.$on('changeSearchTerm', (payload) => {
+        this.query = payload;
       });
     },
 
@@ -87,11 +90,22 @@
     },
     computed: {
       filteredItems() {
-        if (!this.showOutOfStock) {
-          const filteredItems = this.items.filter(item => item.qty > 0);
-          return filteredItems;
+        let filteredItems = this.items;
+        if (!this.showOutOfStock || this.query !== '') {
+          if (this.query !== '') {
+            filteredItems = filteredItems.filter((item) => {
+              const itemName = item.name.toLowerCase();
+              const searchName = this.query.toLowerCase();
+              return itemName.indexOf(searchName) !== -1;
+            });
+          }
         }
-        return this.items;
+
+        if (!this.showOutOfStock) {
+          filteredItems = filteredItems.filter(item => item.qty > 0);
+        }
+
+        return filteredItems;
       },
     },
   };
