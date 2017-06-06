@@ -1,5 +1,3 @@
-
-
 <template>
   <tbody>
     <tr :class="{outOfStock: item.qty == 0}" v-for="(item, index) in filteredItems">
@@ -61,6 +59,9 @@
       bus.$on('changeSearchTerm', (payload) => {
         this.query = payload;
       });
+      bus.$on('addNewItem', (payload) => {
+        this.items.push(payload);
+      });
     },
 
     /* eslint no-param-reassign: ["error", { "props": false }] */
@@ -76,6 +77,7 @@
           item,
           index,
           form: 'editForm',
+          action: 'edit',
         });
       },
     },

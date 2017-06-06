@@ -6,18 +6,14 @@
 
         <input v-if="typeof value == 'number'"
           class="form-control"
-          type="number"
-          :value="value"
+          :type="value"
           @keyup="strToNum($event, key)" @click="strToNum($event, key)"
         >
-
         <input v-else
           class="form-control"
-          type="text"
-          :value="value"
+          :type="value"
           @keyup="setNewItem($event, key)"
         >
-
       </div>
     </form>
   </div>
@@ -35,20 +31,14 @@
         newItem: {},
       };
     },
-    created() {
-      Object.keys(this.item).map((key) => {
-        this.newItem[key] = this.item[key];
-        return this.newItem;
-      }, {});
-    },
     methods: {
       setNewItem(event, key) {
         this.newItem[key] = event.target.value;
-        bus.$emit('editedItem', this.newItem);
+        bus.$emit('addedItem', this.newItem);
       },
       strToNum(event, key) {
         this.newItem[key] = parseFloat(event.target.value);
-        bus.$emit('editedItem', this.newItem);
+        bus.$emit('addedItem', this.newItem);
       },
     },
   };

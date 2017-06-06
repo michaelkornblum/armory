@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Edit Item</h5>
+        <h5 class="modal-title">{{action}} item</h5>
         <button type="button" class="close" @click="show = false">
           <span>&times;</span>
         </button>
@@ -13,7 +13,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" @click="show = false">Close</button>
-        <button type="button" class="btn btn-primary" @click="updateItem(item)">Save changes</button>
+        <button v-if="action == 'edit'" type="button" class="btn btn-primary" @click="updateItem()">Save changes</button>
+        <button v-else="action == 'add'" type="button" class="btn btn-primary" @click="addItem()">Save changes</button>
       </div>
     </div>
   </div>
@@ -23,14 +24,17 @@
 <script>
   import bus from '../main';
   import editForm from './editForm';
+  import addForm from './addForm';
 
   export default {
     name: 'modal',
     components: {
       editForm,
+      addForm,
     },
     data() {
       return {
+        action: '',
         show: false,
         currForm: null,
         item: {},
@@ -44,15 +48,29 @@
         bus.$emit('updatedItem', { item: this.item, index: this.index });
         this.show = false;
       },
+      addItem() {
+        bus.$emit('addNewItem', this.newItem);
+        this.show = false;
+      },
     },
     created() {
       bus.$on('editItem', (payload) => {
         this.currForm = payload.form;
         this.item = payload.item;
         this.index = payload.index;
+        this.action = payload.action;
         this.show = true;
       });
       bus.$on('editedItem', (payload) => {
+        this.newItem = payload;
+      });
+      bus.$on('addItem', (payload) => {
+        this.currForm = payload.form;
+        this.item = payload.formFields;
+        this.action = payload.action;
+        this.show = true;
+      });
+      bus.$on('addedItem', (payload) => {
         this.newItem = payload;
       });
     },

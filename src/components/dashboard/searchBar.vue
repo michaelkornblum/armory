@@ -1,7 +1,7 @@
 <template>
   <div class="form-group">
     <div class="input-group">
-      <input class="form-control" type="text" :placeholder="placeholder" v-model="searchTerm">
+      <input class="form-control" type="text" :placeholder="placeholder" v-model="searchTerm" @keyup.enter="changeText">
       <button class="btn btn-info" @click="changeText">go</button>
     </div>
   </div>
