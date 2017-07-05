@@ -2,7 +2,7 @@
 
 This application is an inventory tracker for shopkeepers in a popular paper and dice rpg.
 
-Currently it is in Minimal Viable Product status. Although it is fully functional, I will be adding additional features.
+Currently, it is in Minimal Viable Product status. Although it's fully functional, I will be adding more features.
 
 -   create a modal dialogue box for deleting entries.
 

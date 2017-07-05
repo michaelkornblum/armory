@@ -92,7 +92,11 @@
     },
     computed: {
       filteredItems() {
-        let filteredItems = this.items;
+        let filteredItems = this.items.sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        });
         if (!this.showOutOfStock || this.query !== '') {
           if (this.query !== '') {
             filteredItems = filteredItems.filter((item) => {
